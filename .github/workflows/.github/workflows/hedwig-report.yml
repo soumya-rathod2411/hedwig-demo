@@ -1,0 +1,53 @@
+name: Hedwig Report
+
+# Scheduled nightly (10pm IST = 16:30 UTC), PLUS workflow_dispatch --
+# this is what the app's "Generate Report Now" button calls via
+# GitHub's API to trigger an on-demand report at any time.
+on:
+  schedule:
+    - cron: "30 16 * * *"  # 16:30 UTC = 22:00 IST
+  workflow_dispatch:
+
+# Only one report generation at a time -- if the button is tapped while
+# the nightly scheduled one happens to be running, this waits its turn
+# rather than running both simultaneously.
+concurrency:
+  group: hedwig-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests openai reportlab
+
+      - name: Collect fresh data first
+        # Runs a collection pass right before reporting -- this is what
+        # makes an on-demand "Generate Report Now" tap actually fetch
+        # something new, not just re-report whatever's already stored.
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python hedwig_collector.py
+
+      - name: Generate the report
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: python hedwig_reporter.py
+
+      - name: Commit and push the new report
+        run: |
+          git config user.name "Hedwig Bot"
+          git config user.email "hedwig-bot@users.noreply.github.com"
+          git add reports/ data/
+          git diff --staged --quiet || git commit -m "Hedwig: report $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
