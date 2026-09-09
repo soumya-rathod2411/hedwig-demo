@@ -1,0 +1,45 @@
+name: Hedwig Collect
+
+# Runs 3x/day, spaced ~7 hours apart. Times are in UTC (GitHub Actions
+# only understands UTC) -- these correspond to roughly 6am, 1pm, 8pm IST.
+on:
+  schedule:
+    - cron: "30 0 * * *"   # 00:30 UTC = 06:00 IST
+    - cron: "30 7 * * *"   # 07:30 UTC = 13:00 IST
+    - cron: "30 14 * * *"  # 14:30 UTC = 20:00 IST
+  workflow_dispatch:  # lets you (or the app) trigger this manually too
+
+# Prevents two collection runs from overlapping if one runs long --
+# the equivalent of the single-instance lock the local scheduler had.
+concurrency:
+  group: hedwig-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run the collector
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python hedwig_collector.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "Hedwig Bot"
+          git config user.email "hedwig-bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "Hedwig: data collection $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
