@@ -3,23 +3,68 @@ Hedwig's 10PM Intelligence Report - Monday, 14 September 2026
 
 ## 3 Things I Absolutely Should Know Today
 
-**WeatherNext AI model achieves breakthrough in forecasting cyclones — Google DeepMind**
-What happened: DeepMind's WeatherNext AI model published in Nature achieves state-of-the-art accuracy in predicting cyclone track, intensity, and wind structure, providing forecasters an extra day's worth of predictive accuracy (three-day forecasts match prior models' two-day forecasts).
-Why you should care: For a Diploma IT student in India, this demonstrates real-world AI deployment for disaster mitigation. India's coastline is highly vulnerable to cyclones; understanding AI-driven forecasting could inform future projects in geospatial analysis, risk modeling, or embedded systems for early warning.
-Impact: High
-What to do: Explore DeepMind's Nature paper to understand the architecture; consider how similar models could apply to Indian monsoon tracking or flood prediction projects.
-Source: DeepMind Google Blog
+## AI
+**Anthropic Launches AI Cybersecurity Project with Big Tech Partners**
+Anthropic announced a collaboration with major technology partners to develop AI-driven cybersecurity solutions. The project aims to integrate AI models into defensive security workflows, signaling increased industry adoption of AI for threat detection and response.
+Why you should care: As AI tools become standard in IT operations, understanding how major AI companies are building security capabilities gives you insight into the skills and technologies that will shape enterprise defense roles. It also highlights the growing convergence of AI and cybersecurity as a career area.
+Impact: Medium
+Source: Reuters
 
-**HalluSquatting turns AI hallucinations into botnet delivery mechanism**
-What happened: Researchers from Tel Aviv University, Technion, and Intuit detailed 'HalluSquatting,' an attack technique that leverages AI assistants' tendency to hallucinate into a scalable infection vector via direct LLM application channels.
-Why you should care: This is a critical security vulnerability affecting all AI coding assistants and chatbots. As a Diploma IT student, you may use tools like GitHub Copilot or Claude Code; understanding this attack vector is essential for writing secure code and recognizing when an AI tool might be compromised.
-Impact: Critical
-What to do: Review the SecurityWeek report on GhostApproval and HalluSquatting; in any AI-assisted coding, validate generated outputs independently, especially for security-sensitive operations.
-Source: SecurityWeek
+**Alibaba Unveils 144GB AI Chip**
+Alibaba's T-Head chipmaking unit launched the Zhenwu M890 AI accelerator with 144GB of GPU memory, designed to support both training and inferencing workloads. The chip represents another layer in Alibaba's full-stack AI strategy.
+Why you should care: Hardware advancements directly affect what AI models you can run locally and the performance you can expect from development environments. Knowing about industry-grade accelerators helps you understand the hardware constraints and capabilities your future projects will face.
+Impact: Medium
+Source: TradingView
 
-**CM IT Fellowship Program — Government Scheme**
-What happened: The Chhattisgarh state government launched the CM IT Fellowship Program, a 2-year M.Tech program in DSAI with hands-on government project experience and a monthly stipend of ₹50,000 for eligible youth.
-Why you should care: Direct opportunity for a Diploma IT student in India to gain advanced AI/ML education with government sponsorship and practical project experience, addressing state-level governance challenges with technology.
+## Cybersecurity
+**IBM Security Forecasts Growing Infostealer Risks from AI Agents**
+IBM's 2026 threat trends report identifies the growing use of AI chatbots and agents in business operations as a new attack surface for infostealer malware. Compromised systems containing stored chatbot credentials are flagged as an emerging risk.
+Why you should care: For a Diploma IT student, this is a concrete warning about how your future work environments will face threats that didn't exist a few years ago. Understanding infostealer risks and how AI agent credentials are targeted gives you practical knowledge for securing any system you work with.
 Impact: High
-What to do: Check eligibility on YouthPower India; if you meet criteria (technical expertise, Chhattisgarh eligibility), apply before the deadline for the 2-year fellowship with stipend.
-Source: YouthPower India
+Source: IBM
+
+## India Policy
+**India's Digital Personal Data Protection Rules 2025 Operationalize DPDPA**
+On 13 November 2025, MeitY notified the Digital Personal Data Protection Rules 2025, following a 10-month wait since the draft Rules were released on 3 January 2025. These Rules operationalize the Digital Personal Data Protection Act 2023 (DPDPA), India's first comprehensive data protection law.
+Why you should care: As a developing IT professional in India, you will inevitably work with systems that handle user data. These rules define your obligations around data consent, breach notification, and data principal rights. Understanding them is essential for compliance in any role involving user data.
+Impact: High
+Source: HLC
+
+## Developer World
+**SQL Server 2025 Released with AI and Developer Features**
+Microsoft SQL Server 2025 (17.x) introduced increased capacity limits for Express edition (up to 50GB relational database size), AI-powered features, developer tools, and enhanced query processing capabilities including Query Store and intelligent query processing.
+Why you should care: SQL Server remains a dominant database platform in Indian enterprises. The new AI-powered features and increased Express edition limits mean you'll encounter these capabilities in workplace environments. Learning them now prepares you for the tools you'll actually use in jobs.
+Impact: Medium
+Source: Microsoft Learn
+
+## Opportunities
+**CM IT Fellowship Program (Chhattisgarh)**
+The scheme aims to empower young professionals with technical expertise to address state-level governance challenges through technology. It offers a 2-year M.Tech program in DSAI, hands-on government project experience, and a monthly stipend of ₹50,000/- to eligible youth of Chhattisgarh.
+Why you should care: This is a rare opportunity for a funded advanced degree with government project experience -- exactly the kind of practical, paid learning that bridges academia and real-world impact for diploma holders.
+Impact: High
+Deadline: Not specified in data; apply while posting is active
+Eligibility: Eligible youth of Chhattisgarh
+Online/Location: Government projects in Chhattisgarh; M.Tech component structure not fully detailed
+Cost: Stipend-based (₹50,000/month); no tuition fee mentioned
+Benefit: 2-year M.Tech in DSAI + hands-on governance project experience + ₹50,000 monthly stipend
+Required skills: Technical expertise in DSAI; interest in addressing state-level governance challenges
+Source: youthpower.in
+
+## Tech Outside AI
+**Alibaba Expands AI Hardware Ecosystem**
+Alibaba unveiled the Zhenwu M890 AI accelerator with 144GB GPU memory, adding another layer to its full-stack AI strategy alongside its existing chip offerings. The processor is designed to support both training and inferencing workloads.
+Why you should care: Hardware choices determine what software stacks are viable. Seeing a major cloud player vertically integrate its AI hardware gives you context for the infrastructure decisions companies make and the performance ceilings you'll encounter in project work.
+Impact: Medium
+Source: TradingView
+
+## My Action for Tomorrow
+
+Review the Digital Personal Data Protection Rules 2025 summary and identify at least one provision (consent, data principal rights, or breach notification) that applies to a project or system you currently work on or plan to build.
+
+## If You Only Remember 3 Things
+
+1. IBM warns that AI agents in business operations create new infostealer malware risks -- understand how credential storage in AI systems becomes an attack vector.
+
+2. India's DPDPA Rules 2025 are now in effect, defining your data protection obligations wherever you handle user data in India.
+
+3. SQL Server 2025 brings AI-powered features and larger Express edition limits -- the database platform you're most likely to encounter in Indian enterprise jobs now includes capabilities you should learn.
