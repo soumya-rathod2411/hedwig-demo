@@ -1,0 +1,10 @@
+Hedwig's 10PM Intelligence Report - Tuesday, 15 September 2026
+============================================================
+
+## 3 Things I Absolutely Should Know Today
+
+**CERT-In Chrome vulnerability warning**: India's Computer Emergency Response Team flagged critical security flaws in Google Chrome across Windows, macOS, and Linux that could allow remote system compromise. **Why you should care**: As a Diploma IT student, you'll likely use Chrome for development and research; unpatched systems expose your work and data to attack. **Impact**: High. **What to do**: Update Chrome immediately via the browser's built-in update mechanism. **Source**: Business Standard
+
+**DeepSeek V4 API price cut**: DeepSeek reduced Pro API pricing by 75%, making high-tier coding assistant capabilities more accessible for Indian developers. **Why you should care**: Dramatically lowers cost barrier for accessing advanced AI coding tools in your projects and coursework. **Impact**: Medium. **What to do**: Evaluate DeepSeek V4 for your coding assistant needs; check API documentation for integration. **Source**: GetInfoToYou
+
+**IBM-Arm strategic collaboration**: IBM announced partnership with Arm to develop new dual-architecture hardware for enterprise AI and data workloads. **Why you should care**: Signals future direction of enterprise hardware you'll encounter in internships and jobs; understanding these architectures gives you career advantage. **Impact**: Medium. **What to do**: Research dual-architecture computing trends; note how this affects cloud instance choices. **Source**: IBM Newsroom
