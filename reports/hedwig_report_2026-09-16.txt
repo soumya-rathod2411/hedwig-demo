@@ -1,0 +1,262 @@
+Hedwig's 10PM Intelligence Report - Wednesday, 16 September 2026
+============================================================
+
+## 3 Things I Absolutely Should Know Today
+
+**Cisco Secure Email Gateway CVE-2026-76461: Critical SQL injection with root-level remote code execution**
+
+What happened: Cisco published a security advisory for CVE-2026-76461, a critical SQL injection vulnerability (CVSS 9.8) affecting Cisco AsyncOS Software for Cisco Secure Email Gateway. The flaw allows an unauthenticated, remote attacker to execute arbitrary commands with root privileges on affected appliances. Exploitation was confirmed in the wild on September 14, 2026. A corresponding CISA KEV alert and Darkreading coverage confirm active targeting.
+
+Why you should care: As a Diploma IT student in India, you will likely encounter enterprise email gateway appliances in internship or workplace settings. This vulnerability demonstrates how a SQL injection flaw in widely-deployed email security hardware can lead to full system compromise. Understanding the exploit path (unauthenticated remote access → command execution) is fundamental to secure system administration.
+
+Impact: **Critical**
+
+What to do: Ensure any Cisco Secure Email Gateway appliances in your environment are updated to the patched firmware version. If you cannot patch immediately, network segmentation and monitoring for anomalous outbound traffic from email gateways are recommended mitigations. Reference CISA's Known Exploited Vulnerabilities catalog for tracking.
+
+Source: Rapid7, CISA KEV, Darkreading
+
+---
+
+**OpenAI Jalapeño AI Chip announcement**
+
+What happened: OpenAI announced its first custom AI chip, Jalapeño, claiming industry-leading speed and efficiency in inference workloads. The chip was measured against Nvidia's GB300 on public benchmarking systems, leading in AI work per unit of power and response speed. Google, AWS, and Meta are concurrently developing their own AI silicon, signaling a shift away from Nvidia's near-monopoly.
+
+Why you should care: For a Diploma IT student, this signals a tangible hardware shift in the AI landscape. Understanding the emerging ecosystem of custom AI chips matters if you plan to work with infrastructure, cloud services, or hardware-accelerated ML workloads. It also means cloud providers may offer different cost/performance tradeoffs in the near future.
+
+Impact: **Medium**
+
+What to do: No immediate action required, but keep this in mind when evaluating cloud GPU vs. custom inference options for projects. Follow announcements from your preferred cloud provider (AWS, Google Cloud, Azure) regarding their custom silicon roadmaps.
+
+Source: CNBC, Bloomberg
+
+---
+
+**IndiaAI Mission: AI Literacy initiative for 10 million citizens**
+
+What happened: Simplilearn has joined the IndiaAI Mission (under MeitY) to roll out the national 'YUVA AI for ALL' foundational course aimed at accelerating AI literacy for 10 million citizens. This is part of India's broader vision to develop context-aware, culturally aligned foundational models through indigenous projects under the IndiaAI Mission.
+
+Why you should care: As a student in India, this is the most directly relevant policy development. The YUVA AI for ALL course is a free, government-backed foundational resource. If you have been looking for a structured entry point into AI concepts with Indian context, this is an officially sanctioned pathway. It also signals the scale of government investment in AI skilling.
+
+Impact: **High** (for India relevance)
+
+What to do: Check if the YUVA AI for ALL course is live on the Simplilearn platform or the MeitY/IndiaAI Mission portals. Enroll if you want a structured, government-aligned introduction to AI fundamentals. No cost is involved.
+
+Source: PRNewswire (Simplilearn + IndiaAI Mission)
+
+---
+
+## AI
+
+**Gemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite: Agentic video understanding launched**
+
+What happened: Google launched agentic video understanding across Gemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite models. The capability improves accuracy while reducing token usage and costs for video analysis, combining native video tools with code execution similar to the existing agentic vision feature.
+
+Why you should care: If you are working with video processing, content analysis, or multimodal AI projects, this reduces the computational cost barrier. The token efficiency improvement is practical for student projects with budget constraints.
+
+Impact: **Medium**
+
+What to do: Experiment with the video understanding features if your project involves clip analysis. No setup beyond standard Gemini API access is required.
+
+Source: Google Blog
+
+---
+
+## Developer World
+
+**GitHub trending repositories and open source guides**
+
+What happened: Multiple GitHub trending listings and open source repository guides were published, covering frameworks like Flutter, C2 frameworks (Sliver, Havoc), administration tools (Evil-WinRM, NetExec), and markdown renderers (MDServe). These represent the current popular open source projects across categories.
+
+Why you should care: As a developer, knowing trending repositories helps you discover tools, frameworks, and libraries that may be relevant to your coursework or projects. The Flutter mention is particularly relevant for mobile/web development students.
+
+Impact: **Low**
+
+What to do: Browse the GitHub Trending page or the curated repository lists if you need a specific tool (e.g., a C2 framework for a security course, a markdown renderer for documentation). No action required beyond exploration.
+
+Source: YouTube GitHub Trending, Dice, top-github-repos-list
+
+---
+
+## Cybersecurity
+
+**Cisco Secure Email Gateway CVE-2026-76461 (duplicate — covered above)**
+
+Note: This item is already covered in the "3 Things" section. No separate entry under Cybersecurity.
+
+**Critical N-able N-central vulnerability and active exploitation**
+
+What happened: Huntress reports active exploitation of a zero-day vulnerability against Progress' MOVEit Transfer (CVE-2023-34362) allowing escalated privileges and unauthorized access. Separately, a critical RCE vulnerability in log4j (CVE-2021-44228) is noted as investigated but likely already patched in most environments.
+
+Why you should care: The MOVEit exploitation trend shows that older CVEs continue to be weaponized. For an IT student, this reinforces the importance of patch management and understanding that "known" vulnerabilities remain active threats if not addressed.
+
+Impact: **Medium**
+
+What to do: If you work with file transfer services, verify MOVEit Transfer patch status. For general learning, review the log4j mitigation steps as a case study in responsible disclosure and long-tail patching.
+
+Source: Huntress
+
+---
+
+**CVE-2026-76461: Critical Cisco Secure Email Gateway SQL injection**
+
+Duplicate of the item already covered under "3 Things" and "Cybersecurity" above. No separate listing.
+
+**Malicious actors already using critical GitLab flaw, CISA KEV**
+
+What happened: CISA has added multiple GitLab vulnerabilities to its Known Exploited Vulnerabilities catalog, including CVE-2026-85706 (critical, targeted recently) and earlier disclosures CVE-2025-0376, CVE-2026-1092, CVE-2025-12664, CVE-2026-5173, and CVE-2026-19478. WatchTowr reports CVE-2026-85706 is the second critical GitLab flaw targeted recently, following CVE-2026-19478 exploitation.
+
+Why you should care: GitLab is widely used in development workflows. This cluster of exploited vulnerabilities in a single platform is a meaningful data point for understanding attack patterns on development tools.
+
+Impact: **Medium**
+
+What to do: If you use GitLab in coursework or projects, check that your instance is updated beyond the disclosed CVEs. The pattern shows that development platforms are high-value targets for initial access.
+
+Source: Cybersecurity Dive, Rapid7, Darkreading
+
+---
+
+**Critical Microsoft Entra ID vulnerability CVE-2026-69836**
+
+What happened: Microsoft advisory confirms CVE-2026-69836, a deserialization of untrusted data vulnerability in Microsoft Entra ID allowing network code execution. Microsoft states this has been fully mitigated and requires no customer action — the purpose of the CVE is informational/tracking only.
+
+Why you should care: Entra ID (formerly Azure AD) is a core identity platform. The fact that Microsoft has already fully mitigated this without customer action is notable for understanding how vendor-side fixes operate.
+
+Impact: **Low**
+
+What to do: No action required. Note the advisory as an example of how major platform vulnerabilities are handled when the fix is server-side.
+
+Source: Help Net Security
+
+---
+
+**Critical Gitea vulnerability CVE-2026-60004 exploited in the wild**
+
+What happened: Attackers have begun exploiting CVE-2026-60004, a critical code injection vulnerability in the Gitea Git platform. CISA confirmed this by adding the vulnerability to its Known Exploited Vulnerabilities catalog.
+
+Why you should care: Gitea is a self-hosted Git service popular in academic and lightweight deployment settings. This shows that even self-hosted developer tools are not immune to active exploitation, reinforcing the need to keep all components updated.
+
+Impact: **Medium**
+
+What to do: If you self-host Gitea for coursework or projects, apply the available patch immediately. If using hosted Git platforms (GitHub, GitLab, Bitbucket), this specific vulnerability does not affect those environments, but the principle applies.
+
+Source: Help Net Security, CISA
+
+---
+
+## India Policy
+
+**IndiaAI Mission: YUVA AI for ALL course via Simplilearn**
+
+Duplicate of the item already covered under "3 Things I Absolutely Should Know Today." No separate entry needed.
+
+---
+
+## Learning
+
+**Great Learning Academy: Free online courses with certificates**
+
+What happened: Great Learning Academy offers an extensive range of free online courses with certifications in trending and high-demand fields including Data Science, AI/ML, IT, Software Development, Cloud Computing, Cybersecurity, and Digital Marketing. Over 1500+ courses are available.
+
+Why you should care: As a Diploma IT student, free certified courses can supplement your learning portfolio. However, distinguish between skills-built and certificate-collected — employers care more about what you can do than the certificate itself.
+
+Impact: **Medium**
+
+What to do: Browse the course catalog if you need structured learning in a specific domain (e.g., cloud computing, cybersecurity fundamentals). Prioritize courses with hands-on labs over those focused purely on theory. Remember: projects matter more than certificates.
+
+Source: Great Learning Academy
+
+---
+
+**NSDC / Skill India Free Online Courses 2026**
+
+What happened: Multiple YouTube and media listings advertise NSDC (National Skill Development Corporation) and Skill India free online courses, including Kisan Drone Operator, Computer Course, and IT certifications, with claims of free certificates for government job aspirants.
+
+Why you should care: These are relevant if you are preparing for government job examinations or skill certification paths. The quality and recognition varies — some are well-aligned with industry needs, others are certification mills.
+
+Impact: **Low to Medium** (depends on your specific career path)
+
+What to do: If you are targeting government jobs or skill certifications, verify the specific course alignment with your goals. For general IT skill building, Great Learning or official certification paths (e.g., Cisco, Microsoft) may offer more recognized credentials.
+
+Source: YouTube listings, NSDC outreach
+
+---
+
+## Hardware
+
+**NVIDIA and Silvaco partner to elevate semiconductor design**
+
+What happened: NVIDIA and Silvaco announced a partnership to advance digital twin technology in semiconductor design and manufacturing. Silvaco is leveraging NVIDIA's AI and accelerated computing capabilities to integrate physics-based simulations into its process, enabling faster and more accurate modeling, optimization, and validation of chip designs.
+
+Why you should care: This is a significant backend development in the chip design tooling layer. For a Diploma IT student, it matters if you are pursuing VLSI, embedded systems, or hardware engineering. The use of AI-accelerated simulation represents the direction of EDA (Electronic Design Automation) tools.
+
+Impact: **Low** (unless you are in VLSI/embedded track)
+
+What to do: No immediate action. Note the trend: EDA tools are integrating AI for faster validation and optimization. If your projects involve microcontroller or FPGA work, modern tools may already embed some of these capabilities.
+
+Source: Yahoo Finance
+
+---
+
+**Fujitsu to sell Japan-made AI chip globally from November**
+
+What happened: Fujitsu will begin selling its Monaka AI chip globally from November 2026. Monaka is positioned as capable of running AI with less data and power than traditional GPUs, using a method known as inference optimization. This challenges the GPU-dominated market led by Nvidia.
+
+Why you should care: Another data point in the emerging custom AI chip landscape. For an Indian IT student, this reinforces that the hardware AI ecosystem is diversifying beyond Nvidia. If you are evaluating cloud GPU options for projects, Fujitsu's entry may eventually expand choice (or availability in specific regions).
+
+Impact: **Low**
+
+What to do: Monitor if Fujitsu chips become available through cloud partners (AWS, GCP, Azure) in the near term. No action required for now.
+
+Source: Kyodo News
+
+---
+
+**OpenAI Jalapeño AI chip (duplicate — covered above)**
+
+Duplicate of the OpenAI Jalapeño item already covered. No separate listing.
+
+---
+
+## Tech Outside AI
+
+**US-China trade tensions could challenge AI-powered sourcing software**
+
+What happened: Business Insider reports that US-China trade tensions could be a challenge for AI-powered sourcing software, with apparel retailers turning to AI as supply chain regulations tighten in the US and Europe. Altana, a software company, helps brands map their global supply chains.
+
+Why you should care: If you are interested in full-stack development, supply chain, or enterprise software, this shows how geopolitics directly impacts software systems. Supply chain software is a tangible application layer where AI meets real-world constraints.
+
+Impact: **Low**
+
+What to do: No action. Note the intersection of geopolitics, AI, and enterprise software as a potential project topic or area of interest for internships in logistics/retail tech.
+
+Source: Business Insider
+
+---
+
+**Pentagon classified AI deals with OpenAI, Google, Microsoft, Amazon, Nvidia, xAI, Reflection**
+
+What happened: The Pentagon granted security clearances to Silicon Valley's AI elite, confirming classified AI contracts with OpenAI, Google, Microsoft, Amazon, Nvidia, xAI, and startup Reflection. Anthropic was notably excluded from this round.
+
+Why you should care: This is the most concrete public evidence of the US military's integration of frontier AI models into sensitive systems. For a student, it underscores that AI is no longer just a consumer or developer tool — it is a national security priority with supply chain and clearance implications.
+
+Impact: **Medium**
+
+What to do: No action required. Understand that AI model access at the highest levels involves vetting, clearances, and restricted deployment — this affects the ecosystem you are entering.
+
+Source: TechBuzz (Pentagon deals)
+
+---
+
+## My Action for Tomorrow
+
+Review the Cisco Secure Email Gateway CVE-2026-76461 advisory and check whether any appliance or lab environment you have access to runs affected firmware, noting the patch timeline and mitigation steps.
+
+---
+
+## If You Only Remember 3 Things
+
+1. **Cisco CVE-2026-76461**: A critical SQL injection in email gateways allowing remote root code execution — patch immediately if you encounter these appliances.
+
+2. **OpenAI Jalapeño chip**: The shift toward custom AI silicon is accelerating; cloud providers may soon offer differentiated inference performance and cost tradeoffs.
+
+3. **IndiaAI YUVA AI for ALL**: A government-backed foundational AI course is now live through Simplilearn/IndiaAI Mission — the most direct, free entry point for Indian students to start learning AI fundamentals with local context.

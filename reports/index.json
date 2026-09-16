@@ -47,5 +47,12 @@
     "txt": "hedwig_report_2026-09-15.txt",
     "generated_at": "2026-09-15T19:48:26.376298",
     "preview": "CERT-In Chrome vulnerability warning: India's Computer Emergency Response Team flagged critical security flaws in Google Chrome across Windo"
+  },
+  {
+    "date": "2026-09-16",
+    "pdf": "hedwig_report_2026-09-16.pdf",
+    "txt": "hedwig_report_2026-09-16.txt",
+    "generated_at": "2026-09-16T19:44:28.681391",
+    "preview": "Cisco Secure Email Gateway CVE-2026-76461: Critical SQL injection with root-level remote code execution**"
   }
 ]
