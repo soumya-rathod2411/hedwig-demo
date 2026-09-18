@@ -9,6 +9,13 @@ on:
     - cron: "30 14 * * *"  # 14:30 UTC = 20:00 IST
   workflow_dispatch:  # lets you (or the app) trigger this manually too
 
+# Least-privilege: this job only ever needs to write repo contents (to
+# commit collected data) -- explicitly declaring that means the token
+# can't do anything else, regardless of what the repo's org-wide or
+# repo-level default token permissions happen to be set to.
+permissions:
+  contents: write
+
 # Prevents two collection runs from overlapping if one runs long --
 # the equivalent of the single-instance lock the local scheduler had.
 concurrency:
@@ -18,6 +25,9 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    # Hard ceiling so a hung step (network issue, infinite retry loop,
+    # etc.) can't silently run for hours burning Actions minutes.
+    timeout-minutes: 15
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -28,7 +38,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests
+        # Pinned exact versions -- API keys are exposed as env vars in
+        # this same job, so an unpinned install could silently pull in
+        # a newer, compromised release of a dependency (or a
+        # typosquatted one) right before those secrets are used.
+        # Bump these deliberately when you want to upgrade, not
+        # automatically on every run.
+        run: pip install requests==2.32.3
 
       - name: Run the collector
         env:
