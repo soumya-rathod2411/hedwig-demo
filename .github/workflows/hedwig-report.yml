@@ -1,16 +1,20 @@
 name: Hedwig Report
 
-# Scheduled nightly (10pm IST = 16:30 UTC), PLUS workflow_dispatch --
-# this is what the app's "Generate Report Now" button calls via
-# GitHub's API to trigger an on-demand report at any time.
+# Scheduled nightly at 9pm IST = 15:30 UTC. No workflow_dispatch anymore --
+# the on-demand "Generate Report Now" button was dropped, so this workflow
+# now only ever runs on its own schedule, never triggered manually.
 on:
   schedule:
-    - cron: "30 16 * * *"  # 16:30 UTC = 22:00 IST
-  workflow_dispatch:
+    - cron: "30 15 * * *"  # 15:30 UTC = 21:00 IST
 
-# Only one report generation at a time -- if the button is tapped while
-# the nightly scheduled one happens to be running, this waits its turn
-# rather than running both simultaneously.
+# Least-privilege: only repo-contents write is ever needed here.
+permissions:
+  contents: write
+
+# Kept even with a single trigger now -- harmless safety net in case the
+# schedule ever somehow double-fires (GitHub Actions has been known to
+# occasionally do this around DST-adjacent dates), so two report runs
+# still can't collide and corrupt the same files.
 concurrency:
   group: hedwig-report
   cancel-in-progress: false
@@ -18,6 +22,8 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
+    # Hard ceiling so a hung step can't silently run for hours.
+    timeout-minutes: 20
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -28,12 +34,15 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests openai reportlab
+        # Pinned exact versions -- same reasoning as hedwig-collect.yml:
+        # secrets are exposed as env vars in this job, so installs here
+        # should never silently pull in a newer, unreviewed release.
+        run: pip install requests==2.32.3 openai==1.54.4 reportlab==4.2.5
 
       - name: Collect fresh data first
-        # Runs a collection pass right before reporting -- this is what
-        # makes an on-demand "Generate Report Now" tap actually fetch
-        # something new, not just re-report whatever's already stored.
+        # Runs a collection pass right before reporting, so the nightly
+        # report reflects whatever's newest rather than only what the
+        # last scheduled hedwig-collect.yml run happened to catch.
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
