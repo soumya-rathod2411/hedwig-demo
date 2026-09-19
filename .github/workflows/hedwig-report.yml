@@ -1,20 +1,20 @@
 name: Hedwig Report
 
-# Scheduled nightly at 9pm IST = 15:30 UTC. No workflow_dispatch anymore --
-# the on-demand "Generate Report Now" button was dropped, so this workflow
-# now only ever runs on its own schedule, never triggered manually.
+# Scheduled nightly at 9pm IST = 15:30 UTC, plus workflow_dispatch so you
+# can manually trigger a run from the Actions tab (same as Hedwig Collect)
+# for testing, without waiting for the schedule.
 on:
   schedule:
     - cron: "30 15 * * *"  # 15:30 UTC = 21:00 IST
+  workflow_dispatch:
 
 # Least-privilege: only repo-contents write is ever needed here.
 permissions:
   contents: write
 
-# Kept even with a single trigger now -- harmless safety net in case the
-# schedule ever somehow double-fires (GitHub Actions has been known to
-# occasionally do this around DST-adjacent dates), so two report runs
-# still can't collide and corrupt the same files.
+# Only one report generation at a time -- if you manually trigger a run
+# while the nightly scheduled one happens to be running, this waits its
+# turn rather than running both simultaneously and colliding.
 concurrency:
   group: hedwig-report
   cancel-in-progress: false
