@@ -36,7 +36,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 # Locally, it stays False by default so you can keep testing with LM Studio.
 USE_CLOUD_MODEL = os.environ.get("GITHUB_ACTIONS") == "true"
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "nvapi-your_key_here").strip()
-MODEL_NAME = "nvidia/nemotron-3.5-lightning-30b-a3b" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
+MODEL_NAME = "meta/llama-3.3-70b-instruct" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
 # =========================================================
 
 if USE_CLOUD_MODEL and NVIDIA_API_KEY == "nvapi-your_key_here":
@@ -302,22 +302,16 @@ messages = [
 completion_kwargs = {
     "model": MODEL_NAME,
     "messages": messages,
-    # Raised from 8000 -- with 11 sections and multiple detailed items per
-    # section, 8000 tokens wasn't enough room and the report was getting cut
-    # off partway through (e.g. stopping right after "3 Things"). Nemotron
-    # 3.5 Lightning supports a large output window, so there's plenty of
-    # headroom here even after accounting for any reasoning tokens it still
-    # spends internally despite enable_thinking being off.
+    # 20000 gives 11 sections with multiple detailed items each plenty of
+    # room. Llama 3.3 70B Instruct is a plain instruct model (no hidden
+    # reasoning phase), so unlike Nemotron every one of these tokens goes
+    # toward visible output -- nothing invisible competing for the budget.
     "max_tokens": 20000
 }
 
-if USE_CLOUD_MODEL:
-    # Nemotron 3.5 Lightning is a REASONING model -- by default it can write
-    # out its whole internal "thinking through this step by step" process
-    # as part of the answer, which is what caused the 15-page reasoning-dump
-    # instead of an actual report. This explicitly tells it to skip that and
-    # go straight to the final answer.
-    completion_kwargs["extra_body"] = {"chat_template_kwargs": {"enable_thinking": False}}
+# No extra_body/enable_thinking needed here -- that was specific to
+# Nemotron 3.5 Lightning being a reasoning model. Llama 3.3 Instruct has
+# no internal "thinking" phase to suppress in the first place.
 
 response = client.chat.completions.create(**completion_kwargs)
 report_text = response.choices[0].message.content
