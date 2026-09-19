@@ -34,10 +34,17 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        # Pinned exact versions -- same reasoning as hedwig-collect.yml:
-        # secrets are exposed as env vars in this job, so installs here
-        # should never silently pull in a newer, unreviewed release.
-        run: pip install requests==2.32.3 openai==1.54.4 reportlab==4.2.5
+        # Pinned exact versions -- secrets are exposed as env vars in
+        # this job, so installs here should never silently pull in a
+        # newer, unreviewed release.
+        #
+        # httpx is pinned explicitly here too, not just openai -- without
+        # this, pip installs the newest httpx (0.28+), which removed a
+        # parameter that openai==1.54.4 still passes internally when
+        # creating its client. That mismatch is what caused:
+        #   "Client.__init__() got an unexpected keyword argument 'proxies'"
+        # httpx<0.28 is the last line of releases before that removal.
+        run: pip install requests==2.32.3 openai==1.54.4 "httpx==0.27.2" reportlab==4.2.5
 
       - name: Collect fresh data first
         # Runs a collection pass right before reporting, so the nightly
