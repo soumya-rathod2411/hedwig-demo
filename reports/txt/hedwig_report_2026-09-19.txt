@@ -1,0 +1,16 @@
+Hedwig's 10PM Intelligence Report - Saturday, 19 September 2026
+============================================================
+
+## 3 Things I Absolutely Should Know Today
+
+**CERT-In advisory on frontier AI-led cyber threats (India)**
+What happened: CERT-In issued a high-severity advisory warning that newer "frontier" AI systems are significantly increasing cyberattack capabilities, allowing threats to be carried out faster, at scale, and with less human effort. These AI systems can identify vulnerabilities, generate exploits, and execute multi-stage attacks autonomously, targeting India's critical infrastructure and broader digital ecosystem.
+Why you should care: As a Diploma IT student in India, you will directly encounter these evolving threat landscapes in academic projects, internships, and future jobs. Understanding that AI lowers the barrier for sophisticated attacks means you need to build security awareness into every project you touch, not just "security-specific" roles.
+Impact: Critical
+What to do: Treat any project involving network-facing code or data handling with heightened threat modeling. Familiarize yourself with OWASP guidelines and basic secure coding practices now — this isn't optional for Indian IT graduates entering the workforce.
+
+**GitLab critical arbitrary file read vulnerability (CVE-2026-19478)**
+What happened: GitLab disclosed a critical arbitrary file read vulnerability (CVE-2026-19478) in August 2026, with evidence that malicious actors are already exploiting it. CISA and other agencies have added it to KEV (Known Exploited Vulnerabilities) catalog, meaning federal systems must patch urgently.
+Why you should care: GitLab is widely used in development workflows, including student projects and internship environments. This vulnerability allows remote attackers to read arbitrary files on affected systems, potentially exposing source code, credentials, and sensitive project data.
+Impact: High
+What to do: If you use GitLab for any coursework or projects, ensure you are on the latest patched version. Check your- a방을 التخطيط (نق17), Name ...

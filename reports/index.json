@@ -61,5 +61,12 @@
     "txt": "hedwig_report_2026-09-17.txt",
     "generated_at": "2026-09-17T19:50:15.508193",
     "preview": "OpenAI's AlphaGenome Atlas dataset released** (WSJ, 9 Sep 2026)"
+  },
+  {
+    "date": "2026-09-19",
+    "pdf": "hedwig_report_2026-09-19.pdf",
+    "txt": "hedwig_report_2026-09-19.txt",
+    "generated_at": "2026-09-19T12:24:37.474741",
+    "preview": "CERT-In advisory on frontier AI-led cyber threats (India)**"
   }
 ]
