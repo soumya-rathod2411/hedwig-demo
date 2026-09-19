@@ -44,8 +44,11 @@ if USE_CLOUD_MODEL and NVIDIA_API_KEY == "nvapi-your_key_here":
 
 DATA_FOLDER = "data"
 REPORTS_FOLDER = "reports"
+PDF_FOLDER = os.path.join(REPORTS_FOLDER, "pdf")
+TXT_FOLDER = os.path.join(REPORTS_FOLDER, "txt")
 os.makedirs(DATA_FOLDER, exist_ok=True)
-os.makedirs(REPORTS_FOLDER, exist_ok=True)
+os.makedirs(PDF_FOLDER, exist_ok=True)
+os.makedirs(TXT_FOLDER, exist_ok=True)
 
 if USE_CLOUD_MODEL:
     client = OpenAI(
@@ -343,14 +346,14 @@ if first_heading > 200:  # some leading text is normal/fine; a huge chunk isn't
 
 # --- Save the report: .txt as a plain backup, .pdf as the real deliverable ---
 today = datetime.now().strftime("%Y-%m-%d")
-report_filename = os.path.join(REPORTS_FOLDER, f"hedwig_report_{today}.txt")
+report_filename = os.path.join(TXT_FOLDER, f"hedwig_report_{today}.txt")
 with open(report_filename, "w", encoding="utf-8") as f:
     f.write(f"Hedwig's 10PM Intelligence Report - {datetime.now().strftime('%A, %d %B %Y')}\n")
     f.write("=" * 60 + "\n\n")
     f.write(report_text)
 print(f"Report saved to: {report_filename}")
 
-pdf_filename = os.path.join(REPORTS_FOLDER, f"hedwig_report_{today}.pdf")
+pdf_filename = os.path.join(PDF_FOLDER, f"hedwig_report_{today}.pdf")
 build_pdf(report_text, pdf_filename)
 print(f"PDF built: {pdf_filename}")
 
