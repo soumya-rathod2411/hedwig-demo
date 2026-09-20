@@ -35,12 +35,12 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 # there -- no need to remember to flip this by hand for cloud runs.
 # Locally, it stays False by default so you can keep testing with LM Studio.
 USE_CLOUD_MODEL = os.environ.get("GITHUB_ACTIONS") == "true"
-NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "nvapi-your_key_here").strip()
-MODEL_NAME = "nvidia/llama-3.1-nemotron-70b-instruct" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "gsk-your_key_here").strip()
+MODEL_NAME = "llama-3.3-70b-versatile" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
 # =========================================================
 
-if USE_CLOUD_MODEL and NVIDIA_API_KEY == "nvapi-your_key_here":
-    sys.exit("NVIDIA_API_KEY is not set -- check the repo's Actions secrets.")
+if USE_CLOUD_MODEL and GROQ_API_KEY == "gsk-your_key_here":
+    sys.exit("GROQ_API_KEY is not set -- check the repo's Actions secrets.")
 
 DATA_FOLDER = "data"
 REPORTS_FOLDER = "reports"
@@ -52,9 +52,9 @@ os.makedirs(TXT_FOLDER, exist_ok=True)
 
 if USE_CLOUD_MODEL:
     client = OpenAI(
-        base_url="https://integrate.api.nvidia.com/v1",
-        api_key=NVIDIA_API_KEY,
-        timeout=300.0  # NVIDIA's hosted inference is fast -- no need for the long local timeout
+        base_url="https://api.groq.com/openai/v1",
+        api_key=GROQ_API_KEY,
+        timeout=300.0  # Groq's LPU hardware is extremely fast -- no need for a long timeout
     )
 else:
     client = OpenAI(
