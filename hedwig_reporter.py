@@ -36,7 +36,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 # Locally, it stays False by default so you can keep testing with LM Studio.
 USE_CLOUD_MODEL = os.environ.get("GITHUB_ACTIONS") == "true"
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "nvapi-your_key_here").strip()
-MODEL_NAME = "qwen/qwen2.5-72b-instruct" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
+MODEL_NAME = "nvidia/llama-3.1-nemotron-70b-instruct" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
 # =========================================================
 
 if USE_CLOUD_MODEL and NVIDIA_API_KEY == "nvapi-your_key_here":
