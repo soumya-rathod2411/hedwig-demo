@@ -57,7 +57,7 @@ jobs:
 
       - name: Generate the report
         env:
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python hedwig_reporter.py
 
       - name: Commit and push the new report
