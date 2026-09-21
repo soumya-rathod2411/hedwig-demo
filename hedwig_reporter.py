@@ -36,7 +36,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 # Locally, it stays False by default so you can keep testing with LM Studio.
 USE_CLOUD_MODEL = os.environ.get("GITHUB_ACTIONS") == "true"
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "gsk-your_key_here").strip()
-MODEL_NAME = "llama-3.3-70b-versatile" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
+MODEL_NAME = "openai/gpt-oss-120b" if USE_CLOUD_MODEL else "nvidia/nemotron-3-nano-4b"
 # =========================================================
 
 if USE_CLOUD_MODEL and GROQ_API_KEY == "gsk-your_key_here":
@@ -302,6 +302,19 @@ body_completion_kwargs = {
     "max_tokens": 20000
 }
 
+if USE_CLOUD_MODEL:
+    # GPT-OSS 120B is a reasoning model -- unlike Nemotron's enable_thinking
+    # flag (which silently failed to fully suppress reasoning, causing
+    # garbled output), Groq documents these as proper first-class params:
+    #   reasoning_format="hidden" -- excludes reasoning content from the
+    #     response entirely, so report_text only ever contains the final
+    #     answer, never leaked thinking tokens.
+    #   reasoning_effort="low" -- this is a formatting/writing task, not
+    #     a hard reasoning problem, so there's no need for it to think
+    #     deeply; low keeps it fast and keeps token usage predictable.
+    body_completion_kwargs["reasoning_format"] = "hidden"
+    body_completion_kwargs["reasoning_effort"] = "low"
+
 body_response = client.chat.completions.create(**body_completion_kwargs)
 body_text = body_response.choices[0].message.content
 
@@ -372,6 +385,10 @@ frame_completion_kwargs = {
     # the body, so this ceiling is very generous headroom, not a tight fit.
     "max_tokens": 4000
 }
+
+if USE_CLOUD_MODEL:
+    frame_completion_kwargs["reasoning_format"] = "hidden"
+    frame_completion_kwargs["reasoning_effort"] = "low"
 
 frame_response = client.chat.completions.create(**frame_completion_kwargs)
 frame_text = frame_response.choices[0].message.content
