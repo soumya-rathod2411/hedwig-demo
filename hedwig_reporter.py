@@ -305,15 +305,21 @@ body_completion_kwargs = {
 if USE_CLOUD_MODEL:
     # GPT-OSS 120B is a reasoning model -- unlike Nemotron's enable_thinking
     # flag (which silently failed to fully suppress reasoning, causing
-    # garbled output), Groq documents these as proper first-class params:
+    # garbled output), Groq documents these as proper first-class API
+    # params. They're not part of the standard OpenAI spec though, so the
+    # openai SDK's create() rejects them as direct kwargs -- extra_body is
+    # how you pass provider-specific fields straight through to the actual
+    # HTTP request, bypassing the SDK's own parameter validation:
     #   reasoning_format="hidden" -- excludes reasoning content from the
     #     response entirely, so report_text only ever contains the final
     #     answer, never leaked thinking tokens.
     #   reasoning_effort="low" -- this is a formatting/writing task, not
     #     a hard reasoning problem, so there's no need for it to think
     #     deeply; low keeps it fast and keeps token usage predictable.
-    body_completion_kwargs["reasoning_format"] = "hidden"
-    body_completion_kwargs["reasoning_effort"] = "low"
+    body_completion_kwargs["extra_body"] = {
+        "reasoning_format": "hidden",
+        "reasoning_effort": "low"
+    }
 
 body_response = client.chat.completions.create(**body_completion_kwargs)
 body_text = body_response.choices[0].message.content
@@ -387,8 +393,10 @@ frame_completion_kwargs = {
 }
 
 if USE_CLOUD_MODEL:
-    frame_completion_kwargs["reasoning_format"] = "hidden"
-    frame_completion_kwargs["reasoning_effort"] = "low"
+    frame_completion_kwargs["extra_body"] = {
+        "reasoning_format": "hidden",
+        "reasoning_effort": "low"
+    }
 
 frame_response = client.chat.completions.create(**frame_completion_kwargs)
 frame_text = frame_response.choices[0].message.content
