@@ -319,7 +319,7 @@ candidates_text = "\n\n---\n\n".join(candidate_blocks) if candidate_blocks else 
 
 # =========================================================
 # STAGE 2: compile the already-condensed candidates into the final
-# 8-section body. This input is dramatically smaller than the original
+# 9-section body. This input is dramatically smaller than the original
 # raw data (pre-summarized items, not full article bodies), so this
 # call stays comfortably under the TPM limit even handling all
 # sections in one request.
@@ -352,6 +352,9 @@ Useful courses/resources, each ranked: Worth doing / Maybe / Skip.
 ## Opportunities
 Hackathons, competitions, internships, open source programs, fellowships, workshops, scholarships, free credits.
 
+## Events Near You
+STRICT LOCATION FILTER: only in-person tech events, conferences, meetups, exhibitions, or summits physically happening in Gandhinagar, Ahmedabad, or GIFT City, Gujarat -- these three are all within roughly 30km of each other (e.g. events at Mahatma Mandir, Gandhinagar). Do NOT include events anywhere else in India or the world, even ones that seem major, prestigious, or relevant -- a national or international event happening in Bengaluru, Delhi, Mumbai, or abroad does NOT belong here no matter how significant it is. If an item's location can't be confirmed as one of these three places, leave it out entirely rather than guessing. For each event actually within this area: what it is, when, where, and how to attend/register if known. Only include events with an actual date or clear timeframe -- never a vague "upcoming" mention with no real date attached. If nothing within this specific area was found, say so plainly rather than substituting a distant event.
+
 ## Tools Worth Trying
 Genuinely useful tools with a concrete practical use case.
 
@@ -362,7 +365,7 @@ RULES:
 - Write each section header EXACTLY ONCE, in the order given above. NEVER repeat a header, and NEVER write filler like "(covered above)" as if it were a new section.
 - If a section genuinely has no candidate items that fit it, write one plain sentence saying so under that section's single header -- never a second header, never invent content to fill it.
 - Do not over-index on AI at the expense of core IT/developer fundamentals.
-- CRITICAL: Output ONLY these 8 sections. No preamble, no meta-commentary, no narration of your own process.
+- CRITICAL: Output ONLY these 9 sections. No preamble, no meta-commentary, no narration of your own process.
 - The very first character of your output must be "#" (the start of "## AI"). Nothing comes before it.
 - Do not write a closing remark after "## Tech Outside AI" -- this part simply ends there."""
 
