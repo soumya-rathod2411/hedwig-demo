@@ -1,11 +1,12 @@
 name: Hedwig Report
 
-# Scheduled nightly at 9pm IST = 15:30 UTC, plus workflow_dispatch so you
-# can manually trigger a run from the Actions tab (same as Hedwig Collect)
-# for testing, without waiting for the schedule.
+# PAUSED as of Sept 21, 2026 -- this was failing every night and sending
+# failure emails while the underlying issue was being debugged. Schedule
+# is commented out, not deleted -- manual-only (workflow_dispatch) until
+# explicitly turned back on. To re-enable, just uncomment "schedule:" below.
 on:
-  schedule:
-    - cron: "30 15 * * *"  # 15:30 UTC = 21:00 IST
+  # schedule:
+  #   - cron: "30 15 * * *"  # 15:30 UTC = 21:00 IST
   workflow_dispatch:
 
 # Least-privilege: only repo-contents write is ever needed here.
