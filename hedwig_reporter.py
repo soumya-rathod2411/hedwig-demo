@@ -536,13 +536,30 @@ def extract_preview(text, max_chars=140):
 
 try:
     manifest = load_manifest()
-    manifest.append({
+
+    new_entry = {
         "date": today,
         "pdf": os.path.basename(pdf_filename),
         "txt": os.path.basename(report_filename),
         "generated_at": datetime.now().isoformat(),
         "preview": extract_preview(report_text)
-    })
+    }
+
+    # If a report for today's date already exists (e.g. this ran more
+    # than once today), replace that entry in place rather than
+    # appending a duplicate -- otherwise the site would show two cards
+    # for the same date, both pointing at the same (already-overwritten)
+    # file.
+    existing_index = next(
+        (i for i, entry in enumerate(manifest) if entry.get("date") == today),
+        None
+    )
+    if existing_index is not None:
+        manifest[existing_index] = new_entry
+        print(f"Manifest entry for {today} already existed -- updated it instead of adding a duplicate.")
+    else:
+        manifest.append(new_entry)
+
     save_manifest(manifest)
     print(f"Manifest updated: {MANIFEST_PATH}")
 
