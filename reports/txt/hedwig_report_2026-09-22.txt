@@ -2,108 +2,48 @@ Hedwig's 10PM Intelligence Report - Tuesday, 22 September 2026
 ============================================================
 
 ## 3 Things I Absolutely Should Know Today
-**India’s Digital Personal Data Protection (DPDP) Act now in force; Data Protection Board operational, full enforcement slated for May 2027**  
-What happened: The DPDP Act has entered full force with the Data Protection Board now functioning, and mandatory enforcement will begin in May 2027.  
-Why you should care: Diploma IT students will soon need to embed privacy‑by‑design practices in software projects, affecting internships, capstone work, and entry‑level roles that handle personal data.  
-Impact: High  
-Source: Blancco (Facebook post)
-
-**Critical Check Point Management Server Flaw Allows Unauthenticated Root Access**  
-What happened: Check Point disclosed CVE‑2026‑91843, a critical vulnerability in its Security Management Server that enables attackers to execute code as root without logging in; CISA has logged the issue.  
-Why you should care: Many Indian IT firms and educational institutions rely on Check Point firewalls; a breach could expose student data and campus networks, making immediate patching and risk assessment essential for any lab or project environment.  
-Impact: High  
-Source: The Hacker News  
-
-**Google launches free AI certificate program in partnership with IIM Calcutta**  
-What happened: Google’s DigiPivot initiative announced a free, four‑month AI and digital marketing course co‑run with IIM Calcutta, offering a certification upon completion.  
-Why you should care: The program provides a no‑cost, industry‑validated credential that can boost employability for Diploma IT students entering the AI sector.  
-Impact: High  
-Source: YouTube – Career with Harsh​
+**HCLTech Inaugurates Global Technology Center in GIFT City, Gujarat**  
+What happened: HCLTech opened a new Global Technology Center in GIFT City, Gujarat, focusing on AI‑led solutions for the financial services sector and signing MOUs with IIT Gandhinagar and Gujarat Technological University to develop tech talent.  
+Why you should care: The center creates internship, training, and recruitment opportunities for Diploma IT students in India, especially in emerging AI and fintech domains.  
+Impact: Medium  
+Source: HCLTech Official Facebook post.  
+Only one high‑impact development was identified in today's report.
 
 ## AI
-**OpenAI Claims Solution to Navier–Stokes Millennium Prize Problem**  
-What happened: OpenAI announced that its model, Buckmaster’s Codex, produced a proof addressing the Navier–Stokes equations, one of the seven unsolved Millennium Prize Problems in mathematics. The company released a detailed paper and an accompanying blog post confirming the result was generated without external data influence.  
-Why you should care: Mastery of fluid dynamics and numerical simulation underpins many engineering and IT projects, including CFD software, game physics engines, and high‑performance computing—all areas where a Diploma IT graduate may work or specialize. Understanding this breakthrough can guide curriculum updates, research projects, and job‑market trends toward AI‑augmented scientific computing.  
-Impact: High  
-Source: OpenAI blog (openai.com)
+No items.
 
 ## Developer World
-**dbt Labs releases dbt 1.12.3 stable version**  
-What happened: dbt Labs announced the stable release of dbt version 1.12.3 on August 20, 2026, updating its Rust‑based data build tool with bug fixes and performance improvements.  
-Why you should care: dbt is widely used for data transformation in modern data pipelines; staying current with the latest stable release ensures compatibility with newer databases and access to efficiency gains, which is critical for IT diploma projects involving data engineering or analytics.  
-Impact: Medium  
-Source: Wikipedia (Data build tool)
+No items.
 
 ## Cybersecurity
-**Critical Check Point Management Server Flaw Allows Unauthenticated Root Access**  
-What happened: Check Point disclosed CVE‑2026‑91843, a critical vulnerability in its Security Management Server that lets attackers execute code as root without logging in. No known wild exploitation yet, but CISA has logged the issue.  
-Why you should care: Many Indian IT firms and educational institutions use Check Point firewalls; a breach could compromise internal networks and student data.  
-Impact: High  
-Source: The Hacker News  
-
-**CISA Flags Actively Exploited ScreenConnect Vulnerability (CVE‑2026‑84869)**  
-What happened: The U.S. CISA added CVE‑2026‑84869 to its Known Exploited Vulnerabilities catalog, noting active exploitation and mandating remediation by September 14 2026 for covered agencies.  
-Why you should care: ScreenConnect (ConnectWise Control) is widely used for remote support and labs in Indian IT curricula; an active exploit could lead to takeover of student machines or lab environments.  
-Impact: Critical  
-Source: Cybersecurity News  
-
-**Cisco Zero‑Day ISE Authentication Bypass (CVE‑2026‑76460) Exploited in the Wild**  
-What happened: Cisco reported a zero‑day vulnerability in Identity Services Engine software that bypasses authentication (CVSS 10.0). CISA added it to the KEV catalog and required patches within days of discovery.  
-Why you should care: Many campus networks in India rely on Cisco ISE for access control; exploitation could allow unauthorized access to university resources and research data.  
-Impact: High  
-Source: The Hacker News
+No items.
 
 ## India
-**India’s Digital Personal Data Protection (DPDP) Act now in force; Data Protection Board operational, full enforcement slated for May 2027**  
-What happened: The DPDP Act, India’s comprehensive data privacy law enacted in 2023, has entered full force with the Data Protection Board (DPB) now functioning, and the government has announced that mandatory enforcement will commence in May 2027.  
-Why you should care: Diploma IT students will soon be required to design and develop software that complies with stringent data‑handling, consent, and breach‑notification requirements, making privacy‑by‑design skills essential for internships and entry‑level roles.  
-Impact: High  
-Source: Blancco (Facebook post)
+No items.
 
 ## Learn
-**Google launches free AI certificate program in partnership with IIM Calcutta**  
-What happened: Google, through its DigiPivot initiative, announced a free, four‑month AI and digital marketing course co‑run with IIM Calcutta, offering a certification upon completion.  
-Why you should care: The program provides Diploma IT students in India with industry‑backed AI skills and a recognized certificate without tuition fees, enhancing employability in the rapidly growing AI sector.  
-Impact: High  
-Source: YouTube – Career with Harsh​
+No items.
 
 ## Opportunities
-**AICTE Announces Research Fellowship Scheme for Full‑Time Ph.D. Scholars in Technical Institutes**  
-What happened: The All India Council for Technical Education (AICTE) opened applications for a new fellowship that will fund meritorious full‑time research scholars pursuing Ph.D. programmes at AICTE‑approved technical institutes and university departments, focusing on designated thrust areas.  
-Why you should care: Diploma‑level IT students can leverage this scheme to transition into advanced research roles, secure financial support for higher education, and enhance employability in high‑growth tech sectors.  
-Impact: High  
-Source: AICTE – Students Development Schemes
+No items.
+
+## Events Near You
+**HCLTech Inaugurates Global Technology Center in GIFT City, Gujarat**
+What happened: HCLTech opened a new Global Technology Center in GIFT City, Gujarat, focusing on AI‑led solutions for the financial services sector and signing MOUs with IIT Gandhinagar and Gujarat Technological University to develop tech talent.  
+Why you should care: The center creates internship, training, and recruitment opportunities for Diploma IT students in India, especially in emerging AI and fintech domains.  
+Impact: Medium  
+Source: HCLTech Official Facebook post.
 
 ## Tools Worth Trying
-**IBM partners with Anthropic to boost developer productivity by up to 45%**  
-What happened: IBM announced a partnership with AI‑startup Anthropic to embed Claude‑based large language models into a new IBM IDE, promising up to a 45 % increase in developer productivity across multiple programming languages. The tool is entering private preview for selected customers.  
-Why you should care: Diploma‑level IT students in India can access early‑preview versions to experiment with AI‑assisted coding, gaining skills in LLM‑driven development that are rapidly becoming industry standards.  
-Impact: High  
-Source: IBM Stock News (finance.yahoo.com)
+No items.
 
 ## Tech Outside AI
-**OpenAI Unveils New AI Chip Claiming Superior Speed and Lower Cost Than Nvidia’s Leading GPU**  
-What happened: OpenAI announced a custom semiconductor that, in its own tests, outperformed Nvidia’s top‑tier GB300 GPU on public benchmarks, promising faster inference and reduced operating expenses.  
-Why you should care: Understanding cutting‑edge AI hardware trends is essential for Diploma IT students, as it influences curriculum focus, future job skills, and potential internship opportunities with emerging AI startups.  
-Impact: High  
-Source: Los Angeles Times  
-
-**Bosch and Dassault Systemes Launch Agentic AI on Indian Factory Floors**  
-What happened: Bosch’s STS software unit and Dassault Systèmes announced a strategic partnership to deploy agentic AI and virtual‑twin technology on Indian manufacturing sites, beginning with an electric‑vehicle maker.  
-Why you should care: The collaboration brings advanced AI‑driven automation to India’s industrial sector, creating demand for skills in AI integration, digital twins, and IoT—areas directly relevant to IT diploma curricula and future job opportunities.  
-Impact: High  
-Source: YouTube (Bosch‑Dassault collaboration video)  
-
-**India approves 12 new semiconductor projects as global chip market set to double by 2030**  
-What happened: India has approved 12 semiconductor manufacturing projects, aligning with forecasts that the global semiconductor market will grow from $1.7 trillion in 2026 to $3.2 trillion by 2030, with India's chip demand expected to reach $100‑$110 billion.  
-Why you should care: The surge creates fresh job opportunities, internship slots, and demand for skilled technicians and engineers in chip design, fabrication, and testing—fields directly relevant to Diploma IT curricula.  
-Impact: High  
-Source: DQIndia.
+No items.
 
 ## My Action for Tomorrow
-Enroll in Google’s free AI and digital marketing certification program to acquire industry‑backed AI skills before the next semester starts.
+Visit the HCLTech Global Technology Center recruitment page and submit an application for the advertised internship program.
 
 ## If You Only Remember 3 Things
-- DPDP Act enforcement begins May 2027; integrate privacy‑by‑design now.  
-- Patch Check Point Management Server immediately to block a root‑level exploit.  
-- Secure the free Google‑IIM Calcutta AI certificate to enhance job prospects.
+- HCLTech launched a new AI‑focused tech center in GIFT City.  
+- The center partners with IIT Gandhinagar and Gujarat Technological University.  
+- It offers internship and hiring pathways for Diploma IT students in AI and fintech.
