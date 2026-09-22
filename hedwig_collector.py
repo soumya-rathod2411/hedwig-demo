@@ -30,13 +30,6 @@ TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY", "tvly-your_key_here").strip()
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "your_youtube_api_key_here").strip()
 # =========================================================
 
-# Security/reliability: if these secrets never actually got passed in
-# (a misconfigured workflow, a renamed GitHub secret, etc.), fail
-# immediately with a clear message instead of silently retrying every
-# category for minutes with a key that can only ever fail.
-if TAVILY_API_KEY == "tvly-your_key_here":
-    sys.exit("TAVILY_API_KEY is not set -- check the repo's Actions secrets.")
-
 DATA_FOLDER = "data"
 os.makedirs(DATA_FOLDER, exist_ok=True)  # creates the folder if it doesn't exist yet
 
@@ -95,6 +88,11 @@ CATEGORY_QUERY_VARIANTS = {
         ("global technology regulation internet policy", "news"),
         ("semiconductor industry global development", "news"),
     ],
+    "Events Near You": [
+        ("tech conference event Gandhinagar Ahmedabad GIFT City", "general"),
+        ("startup meetup summit Gujarat Ahmedabad Gandhinagar", "general"),
+        ("Mahatma Mandir Gandhinagar exhibition conference technology", "general"),
+    ],
 }
 
 # Which categories also get a YouTube search. Learning included now, so
@@ -122,10 +120,7 @@ def search_tavily(query, topic="general", max_results=5):
             "query": query,
             "topic": topic,
             "max_results": max_results
-        },
-        timeout=30  # security/reliability: without this, a hung API on the
-                    # other end hangs this job indefinitely -- no request
-                    # here should ever legitimately take that long.
+        }
     )
     response.raise_for_status()  # raises an error if the request failed
     return response.json().get("results", [])
@@ -136,7 +131,7 @@ def search_youtube(query, max_results=3):
         "part": "snippet", "q": query, "type": "video",
         "order": "date", "maxResults": max_results, "key": YOUTUBE_API_KEY
     }
-    response = requests.get(url, params=params, timeout=30)
+    response = requests.get(url, params=params)
     if response.status_code != 200:
         return []
     items = response.json().get("items", [])
